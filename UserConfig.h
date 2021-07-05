@@ -2,33 +2,18 @@
 //#define DEFAULT_LOG_LEVEL LogLevels::DEBUG
 //#define PRINT_MEM_INFO
 /* ------------------------------------------------------------------------ */
-/* Select if you are using ArduinoIDE                                       */
-/* ------------------------------------------------------------------------ */
-
-//#define ArduinoIDE
-
-/* ------------------------------------------------------------------------ */
 /* Select the board that you are using below. Make sure to only select one! */
-/* Only if you are using ArduinoIDE, not needed for PlatformIO              */
 /* ------------------------------------------------------------------------ */
 
 //#define MAKERFABTOUCH
-//#define ESP32TOUCHDOWN
+#define ESP32TOUCHDOWN
 //#define ESP32DEVKIT
 //#define ARDUINO_TWATCH
 
 /* ------------------------------------------------------------------------ */
-/* FreeTouchDeck version                                                    */
-/* ------------------------------------------------------------------------ */
-
-#define FTD_VER_MAJ 0
-#define FTD_VER_MIN 9
-#define FTD_VER_REV 13
-
-/* ------------------------------------------------------------------------ */
 /* Board specific config. No need to touch if you selected the right board  */
 /* ------------------------------------------------------------------------ */
-#ifdef ArduinoIDE
+
 /* MakerFab's Touchscreen configuration */
 #ifdef MAKERFABTOUCH
 #define CUSTOM_TOUCH_SDA 26
@@ -38,7 +23,6 @@
 #define SCREEN_ROTATION 1
 #define INVERSE_Y_TOUCH
 #define FLIP_TOUCH_AXIS
-#include "setup/Makerfabs_Capacitive_Touch_User_Setup.h"
 
 /* Arduino TWatch Configuration */
 #elif defined(ARDUINO_TWATCH_BASE) && defined(ARDUINO_TWATCH)
@@ -61,8 +45,7 @@
 #define FLIP_TOUCH_AXIS
 #define INVERSE_Y_TOUCH
 #define USECAPTOUCH
-#define SDDAT3 25
-#include "setup/ESP32_TouchDown.h"
+#define SDDAT3 25 
 
 /* Using the ESP32 DevKit with a screen module */
 #elif defined(ESP32DEVKIT)
@@ -70,12 +53,10 @@
 #define FLIP_TOUCH_AXIS
 #define INVERSE_Y_TOUCH
 #define touchInterruptPin GPIO_NUM_27
-#include "setup/ESP32_Dev_Kit_V1_ILI9488_Resistive.h"
 #else 
-
 #error("Unsupported platform")
 #endif
-#endif /* - ArduinoIDE - */
+
 /* --- END OF USER CONFIG --- */
 
 #ifndef touchInterruptPin
