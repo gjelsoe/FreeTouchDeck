@@ -21,9 +21,11 @@
 /* FreeTouchDeck version                                                    */
 /* ------------------------------------------------------------------------ */
 
+#ifndef USE_PLATFORMIO
 #define FTD_VER_MAJ 0
 #define FTD_VER_MIN 9
 #define FTD_VER_REV 13
+#endif
 
 /* ------------------------------------------------------------------------ */
 /* Board specific config. No need to touch if you selected the right board  */
