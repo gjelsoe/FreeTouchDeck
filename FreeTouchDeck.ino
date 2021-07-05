@@ -22,7 +22,8 @@
       - ESPAsyncWebserver (latest version) download from: https://github.com/me-no-dev/ESPAsyncWebServer
       - AsyncTCP (latest version) download from: https://github.com/me-no-dev/AsyncTCP
       - TJpg_Decoder (latest version) download from https://github.com/Bodmer/TJpg_Decoder
-
+      - LittleFS library for arduino-esp32 (last version) download from	https://github.com/lorol/LITTLEFS
+      -
       --- If you use Capacitive touch ---
       - Dustin Watts FT6236 Library (version 1.0.1), https://github.com/DustinWatts/FT6236
       
@@ -38,10 +39,6 @@
         You can find examples of User_Setup.h in the "user_setup.h Examples" folder.
   
 */
-
-// ------- Uncomment the next line if you use capacitive touch -------
-// (THE ESP32 TOUCHDOWN USES THIS!)
-//#define USECAPTOUCH
 
 // ------- Uncomment and populate the following if your cap touch uses custom i2c pins -------
 //#define CUSTOM_TOUCH_SDA 26
