@@ -50,6 +50,10 @@
 // PAY ATTENTION! Even if resistive touch is not used, the TOUCH pin has to be defined!
 // It can be a random unused pin.
 // TODO: Find a way around this!
+
+#define STRINGIFY(s) STRINGIFY1(s)
+#define STRINGIFY1(s) #s
+
 #define ACTIONS_IN_TASKS
 #include "UserConfig.h"
 
@@ -57,7 +61,7 @@
 AXP20X_Class *power = new AXP20X_Class();
 #endif
 static const char *module = "FreeTouchDeck";
-const char *versionnumber = "0.9.11";
+const char *versionnumber = STRINGIFY(FTD_VER_MAJ + '.' + FTD_VER_MIN + '.' + FTD_VER_REV);
 
 /* Version 0.9.11.
      *  
