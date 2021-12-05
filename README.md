@@ -79,10 +79,15 @@ Make sure that a PATH for PlatformIO has been set for Linux or Windows within th
 The following commands are:
 
 all 		- Builds BIN files for all devices.
+
 clean 		- Removes all files generated while building.
+
 touchdown 	- Builds BIN file for touchdown
+
 makerfabs 	- Builds BIN file for Makefabs
+
 devkit 		- Builds BIN file for ESP32 Dev-Kit
+
 
 BIN files can be found at 'built_out\firmware' directory.
 
