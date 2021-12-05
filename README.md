@@ -52,11 +52,39 @@ https://github.com/DustinWatts/ESP32_TFT_Combiner
 
 # TFT_eSPI configuration
 
-Before compiling and uploading the FreeTouchDeck.ino sketch, you will have to edit the **user_setup.h** file included with the TFT_eSPI library. This can be found in your Arduino skechtbook folder under "libraries". If you have not renamed the TFT_eSPI library folder, the file **user_setup.h** can be found in **TFT_eSPI-master**. Here you will have to uncomment the lines that apply to you hardware configuration. For example: if you have an TFT with an ILI9488 driver, you will have to uncomment that line under `Section 1`. Make sure all the other drivers are commented out!  
+Before compiling and uploading the FreeTouchDeck.ino sketch, you will have to edit the **user_setup.h** file included with the TFT_eSPI library. This can be found in your Arduino sketchbook folder under "libraries". If you have not renamed the TFT_eSPI library folder, the file **user_setup.h** can be found in **TFT_eSPI-master**. Here you will have to uncomment the lines that apply to you hardware configuration. For example: if you have an TFT with an ILI9488 driver, you will have to uncomment that line under `Section 1`. Make sure all the other drivers are commented out!  
 
-The next section is `Section 2`. This also depends on what hardware you are using. For example for an ESP32 you'll have to uncomment the correct #define(s) under `EDIT THE PIN NUMBERS IN THE LINES FOLLOWING TO SUIT YOUR ESP32 SETUP`. Also if your TFT has the blacklight control pin available you will have to uncomment the lines found under `#define TFT_BL` and `#define TFT_BACKLIGHT_ON`.  
+The next section is `Section 2`. This also depends on what hardware you are using. For example for an ESP32 you'll have to uncomment the correct #define(s) under `EDIT THE PIN NUMBERS IN THE LINES FOLLOWING TO SUIT YOUR ESP32 SETUP`. Also if your TFT has the black light control pin available you will have to uncomment the lines found under `#define TFT_BL` and `#define TFT_BACKLIGHT_ON`.  
 
 "Section 3" can be left alone.   
+
+# PlatformIO
+
+Both Ardiuno and PlatformIO can be used to build this project. PlatformIO will automatically download needed libraries and specific versions if needed.
+
+To open the project in PlatformIO, choose `File->Open Folder` and navigate to where you cloned the project to..
+Under **Project Tasks** you can select the appropriate devices you want to build for, the finished BIN file will be located in `"build_output\firmware"` folder.
+It's also possible to program the devices direct from PlatformIO by selecting `Upload` under the chosen device.
+
+In `UserConfig.h` you must comment out #ArduinoIDE by adding // in front. eg. //#Arduino
+
+Note, that you will also need to change `device_comport` in platformio.ini file under section `[common_env_data]` if you want to monitor output from the Device or program it.
+
+# Makefile
+
+The project also supports using `make` command if installed.
+
+Make sure that a PATH for PlatformIO has been set for Linux or Windows within the `Makefile` by changing `PlatformIO_Path` with the correct path.
+
+The following commands are:
+
+all 		- Builds BIN files for all devices.
+clean 		- Removes all files generated while building.
+touchdown 	- Builds BIN file for touchdown
+makerfabs 	- Builds BIN file for Makefabs
+devkit 		- Builds BIN file for ESP32 Dev-Kit
+
+BIN files can be found at 'built_out\firmware' directory.
 
 # Help
 
